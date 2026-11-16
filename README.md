@@ -1,4 +1,4 @@
-# Larder
+# PantryApp
 
 > Working name — subject to change.
 
