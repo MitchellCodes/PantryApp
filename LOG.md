@@ -19,6 +19,20 @@ A running log of plans, decisions, and changes. Add a new entry at the **top** a
 
 ---
 
+## 2026-11-22 — Decision: language
+
+**Goal:** Make the first Phase 0 technology decision (`PLAN.md`).
+**Done:**
+- Compared TypeScript, JavaScript, and Kotlin (Compose Multiplatform for web)
+- Chose TypeScript; recorded it as Confirmed in `CLAUDE.md` and ticked it in `PLAN.md`
+**Decisions:**
+- **TypeScript with `strict` on.** Static types and interfaces feel closest to Java among the web options, it's the industry standard for web apps, and the type checker helps verify generated code one file at a time. Plain JavaScript gives up that safety. Kotlin for the web was rejected: the web target is still maturing, Room doesn't support it, and tooling would eat the short build window.
+**Agent notes:** Presented a comparison table with a recommendation and waited for the pick, per the "Not yet decided" rule in `CLAUDE.md`.
+**Next:** Decide the UI framework.
+**Blockers:** None.
+
+---
+
 ## 2026-11-22 — Switch from Android/Play Store to a PWA
 
 **Goal:** Revisit how the app is delivered after the Nov 21 Play closed-testing milestone slipped, and update all planning files to match.
