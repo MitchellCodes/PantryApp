@@ -19,6 +19,34 @@ A running log of plans, decisions, and changes. Add a new entry at the **top** a
 
 ---
 
+## 2026-11-22 — Decision: UI framework
+
+**Goal:** Make the second Phase 0 technology decision (`PLAN.md`).
+**Done:**
+- Compared React, Vue, and Svelte
+- Chose React; recorded it as Confirmed in `CLAUDE.md` and ticked it in `PLAN.md`
+**Decisions:**
+- **React (function components + hooks).** The stated priority was maximizing the chance of getting hired. React has the largest job market and ecosystem, and the most examples and tutorials. React experience also transfers well to Vue (components, props, state, tooling), though it doesn't replace Vue-specific keywords in listings that require Vue. Vue was the gentler alternative; Svelte has the smallest job market.
+**Agent notes:** Asked whether React experience helps with Vue-requiring listings before deciding; the answer was yes for concepts and tooling, not for Vue-specific APIs.
+**Next:** Decide the build tool.
+**Blockers:** None.
+
+---
+
+## 2026-11-22 — Decision: language
+
+**Goal:** Make the first Phase 0 technology decision (`PLAN.md`).
+**Done:**
+- Compared TypeScript, JavaScript, and Kotlin (Compose Multiplatform for web)
+- Chose TypeScript; recorded it as Confirmed in `CLAUDE.md` and ticked it in `PLAN.md`
+**Decisions:**
+- **TypeScript with `strict` on.** Static types and interfaces feel closest to Java among the web options, it's the industry standard for web apps, and the type checker helps verify generated code one file at a time. Plain JavaScript gives up that safety. Kotlin for the web was rejected: the web target is still maturing, Room doesn't support it, and tooling would eat the short build window.
+**Agent notes:** Presented a comparison table with a recommendation and waited for the pick, per the "Not yet decided" rule in `CLAUDE.md`.
+**Next:** Decide the UI framework.
+**Blockers:** None.
+
+---
+
 ## 2026-11-22 — Switch from Android/Play Store to a PWA
 
 **Goal:** Revisit how the app is delivered after the Nov 21 Play closed-testing milestone slipped, and update all planning files to match.

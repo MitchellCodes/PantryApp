@@ -34,8 +34,8 @@ Also submit the portfolio link with an updated Artifact 5 card at the end of eac
 - [ ] Fix `README.md` (no "closed testing" claim; correct clone path)
 
 **Decisions** (one at a time; options + recommendation, then record in `LOG.md`)
-- [ ] Language
-- [ ] UI framework
+- [x] Language: TypeScript (strict)
+- [x] UI framework: React
 - [ ] Build tool
 - [ ] Local storage
 - [ ] PWA tooling
