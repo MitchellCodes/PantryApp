@@ -19,6 +19,23 @@ A running log of plans, decisions, and changes. Add a new entry at the **top** a
 
 ---
 
+## 2026-11-22 — Decision: build tool
+
+**Goal:** Make the third Phase 0 technology decision (`PLAN.md`).
+**Done:**
+- Compared Vite, Next.js, and Parcel, then a deeper Vite vs. Next.js comparison
+- Chose Vite; recorded it as Confirmed in `CLAUDE.md` and ticked it in `PLAN.md`
+- Added three framework-isolation rules to `CLAUDE.md` Conventions
+**Decisions:**
+- **Vite.** It matches the app's shape (client-only, offline-first PWA with browser storage), has the smoothest PWA and Vitest integration, outputs portable static files, and carries the least risk in the short build window. Next.js's strengths (server rendering, API routes, built-in backend) mainly pay off with accounts and a server database.
+- **Next.js stays a realistic later option** if the cross-device sync stretch goal is built. Keeping `domain/`, `data/` repositories, and components free of framework imports means a swap rewrites only the thin shell (routing, entry, PWA and build config). Estimated one to two days, plus adding `"use client"` markers.
+- **New rules:** framework-specific code stays in a thin shell; framework APIs are wrapped in small helpers; no browser-only work at module load.
+**Agent notes:** Interfaces can't abstract the framework itself. Layering and isolation are what keep a swap cheap.
+**Next:** Decide local storage.
+**Blockers:** None.
+
+---
+
 ## 2026-11-22 — Decision: UI framework
 
 **Goal:** Make the second Phase 0 technology decision (`PLAN.md`).

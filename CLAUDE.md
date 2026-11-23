@@ -31,13 +31,13 @@ This is a five-week course project (TCSS 490 Artifact 5) and a portfolio piece. 
 - **AI backend:** small serverless function in `/backend` that holds the API key (see Security); platform not yet chosen
 - **Language:** TypeScript with `strict` mode on (decided 2026-11-22)
 - **UI framework:** React with function components and hooks (decided 2026-11-22; chosen for the largest job market and ecosystem)
+- **Build tool:** Vite (decided 2026-11-22; best fit for a client-side, offline-first PWA). A later move to Next.js is possible if cross-device sync is built; the framework-isolation rules in Conventions exist to keep that move cheap.
 - **Developer background:** Java — prefer clear, explicit, typed code over clever idioms, and explain unfamiliar concepts briefly when introducing them
 
 ### Not yet decided
 
 Nothing below is chosen. Do not install, scaffold, or write code that depends on any of these until the developer picks one. When a decision comes up, present 2–3 options with trade-offs and a recommendation, then wait. Record each decision in `LOG.md` and move it up to Confirmed.
 
-- **Build tool:** Vite (candidate) vs. Next.js, Parcel
 - **Routing:** React Router (candidate) vs. TanStack Router, framework built-in
 - **Local storage:** Dexie/IndexedDB (candidate) vs. raw IndexedDB, idb, localForage, SQLite WASM
 - **PWA tooling:** `vite-plugin-pwa` (candidate) vs. hand-written service worker, Workbox
@@ -91,6 +91,9 @@ Run tests, lint, and type check before saying a task is done. If something can't
 - React: presentational components take props and callbacks; data access and state live in hooks/repositories, not inline in components.
 - User-facing strings are kept together per feature (or in a strings module), not scattered through JSX.
 - **Storage must be swappable.** UI and `domain/` never call the database directly. All reads and writes go through repository interfaces defined in `data/` (e.g. `PantryRepository`), with local browser storage as the first implementation. Repository methods should be async and return plain data objects, so a cloud-synced implementation (accounts + sync is a stretch goal) can replace the local one without changes elsewhere. Don't leak storage-specific types out of `data/`.
+- **Keep framework-specific code in a thin shell.** Imports from the router, `import.meta.env`, and other Vite-specific APIs live only in the routing, entry, and config files (e.g. `main.tsx`, `App.tsx`, a `config` module). Feature components, hooks, `data/`, and `domain/` must not import them directly, so the app could move to another React setup such as Next.js by rewriting only that shell.
+- **Wrap framework APIs behind small helpers.** For example, a `useAppNavigate()` hook instead of calling the router everywhere, and one `config` module that reads environment settings. Components receive navigation and config through these helpers or props.
+- **No browser-only work at module load.** Don't touch `window`, `localStorage`, or IndexedDB when a file is imported; do it inside effects, event handlers, or functions called at runtime. This keeps code safe if it ever runs on a server.
 - Local schema changes require a new version with an upgrade function (never delete or reset user data once testers have the app).
 - Dates: store as ISO `YYYY-MM-DD` strings (date-only, no time zones); parse and compare in `domain/`.
 - Units: normalize quantities into a small fixed set (g, ml, count) in `domain/` before comparing.
