@@ -35,7 +35,7 @@ Also submit the portfolio link with an updated Artifact 5 card at the end of eac
 
 **Decisions** (one at a time; options + recommendation, then record in `LOG.md`)
 - [x] Language: TypeScript (strict)
-- [ ] UI framework
+- [x] UI framework: React
 - [ ] Build tool
 - [ ] Local storage
 - [ ] PWA tooling

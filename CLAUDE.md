@@ -30,15 +30,15 @@ This is a five-week course project (TCSS 490 Artifact 5) and a portfolio piece. 
 - **Persistence model:** local-first in the browser; no user accounts in the MVP
 - **AI backend:** small serverless function in `/backend` that holds the API key (see Security); platform not yet chosen
 - **Language:** TypeScript with `strict` mode on (decided 2026-11-22)
+- **UI framework:** React with function components and hooks (decided 2026-11-22; chosen for the largest job market and ecosystem)
 - **Developer background:** Java — prefer clear, explicit, typed code over clever idioms, and explain unfamiliar concepts briefly when introducing them
 
 ### Not yet decided
 
 Nothing below is chosen. Do not install, scaffold, or write code that depends on any of these until the developer picks one. When a decision comes up, present 2–3 options with trade-offs and a recommendation, then wait. Record each decision in `LOG.md` and move it up to Confirmed.
 
-- **UI framework:** React (candidate) vs. Vue, Svelte, Solid
 - **Build tool:** Vite (candidate) vs. Next.js, Parcel
-- **Routing:** React Router (candidate, if React) vs. TanStack Router, framework built-in
+- **Routing:** React Router (candidate) vs. TanStack Router, framework built-in
 - **Local storage:** Dexie/IndexedDB (candidate) vs. raw IndexedDB, idb, localForage, SQLite WASM
 - **PWA tooling:** `vite-plugin-pwa` (candidate) vs. hand-written service worker, Workbox
 - **Testing:** Vitest (candidate) vs. Jest; React Testing Library for components
